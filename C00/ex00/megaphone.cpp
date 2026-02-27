@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <cctype>
+//#include <cctype>
 #include <string>
 
 void    args_to_upper(std::string argv) {
