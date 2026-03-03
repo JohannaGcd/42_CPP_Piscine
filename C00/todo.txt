@@ -1,0 +1,5 @@
+- add test file for ex01
+- same for ex02
+- double check eval requirements 
+- copy files to original git (without the testers)
+- set project as finished and eval
