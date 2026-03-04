@@ -1,5 +1,5 @@
 NAME = bankster
-CFLAGS = -std=c++11 #-Werror -Wextra -Wall 
+CFLAGS = -Wall -Wextra -Werror -Wno-deprecated-declarations -std=c++11
 
 INC = Account.hpp
 SRC = tests.cpp Account.cpp

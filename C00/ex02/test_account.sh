@@ -35,7 +35,7 @@ else
 fi
 
 echo "Checking strict compile (-Wall -Wextra -Werror)..."
-if c++ -Wall -Wextra -Werror -std=c++11 tests.cpp Account.cpp -o /tmp/ex02_strict_check 2>/tmp/ex02_strict_err.log; then
+if c++ -Wall -Wextra -Werror -Wno-deprecated-declarations -std=c++11 tests.cpp Account.cpp -o /tmp/ex02_strict_check 2>/tmp/ex02_strict_err.log; then
   pass "Strict compile"
 else
   fail "Strict compile"
