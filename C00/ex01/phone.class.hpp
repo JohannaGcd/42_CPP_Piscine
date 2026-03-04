@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <cctype>
+#include <algorithm>
 
 class Contact {
 
@@ -31,7 +32,7 @@ class PhoneBook {
 
         PhoneBook() {};
 
-        void add_contact( int index );
+        bool add_contact( int index );
         void search_contact( Contact *contact_list, int counter_contact );
 };
 

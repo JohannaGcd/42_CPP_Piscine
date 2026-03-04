@@ -8,10 +8,14 @@ int main() {
 
     while (1) {
         std::cout << "Please enter your command : [ ADD / SEARCH / EXIT ]" << std::endl;
-        std::cin >> cmd;
-        if (cmd == "ADD") {
-            phonebook.add_contact(counter_contact);
-            counter_contact += 1;
+        if (!std::getline(std::cin, cmd))
+            break;
+        if (cmd == "ADD")
+        {
+            if (phonebook.add_contact(counter_contact))
+                counter_contact += 1;
+            else
+                break;
         }
         else if (cmd == "SEARCH") {
             if (counter_contact == 0) {
