@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-// trim whitespaces
-
 void    args_to_upper(std::string str) {
 
     int i = 0;
