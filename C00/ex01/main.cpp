@@ -1,4 +1,4 @@
-#include "phone.class.hpp"
+#include "PhoneBook.hpp"
 
 int main() {
 
@@ -7,9 +7,11 @@ int main() {
     PhoneBook phonebook;
 
     while (1) {
+
         std::cout << "Please enter your command : [ ADD / SEARCH / EXIT ]" << std::endl;
         if (!std::getline(std::cin, cmd))
             break;
+
         if (cmd == "ADD")
         {
             if (phonebook.add_contact(counter_contact))
@@ -17,6 +19,7 @@ int main() {
             else
                 break;
         }
+
         else if (cmd == "SEARCH") {
             if (counter_contact == 0) {
                 std::cout << "No contacts available. Please add a contact first." << std::endl;
@@ -24,8 +27,10 @@ int main() {
                 phonebook.search_contact(phonebook.contact_list, counter_contact);
             }
         }
+
         else if (cmd == "EXIT")
             break ;
+            
         else
             continue ;
     }

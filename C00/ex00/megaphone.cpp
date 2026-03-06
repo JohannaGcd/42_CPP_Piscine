@@ -28,6 +28,7 @@ int main(int argc, char **argv) {
             args_to_upper(std::string(argv[i]));
             i++;
         }
+        std::cout << std::endl;
     }
     return (0);
 }
