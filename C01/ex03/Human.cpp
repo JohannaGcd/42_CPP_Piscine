@@ -10,5 +10,5 @@ void HumanA::attack(void) {
 };
 
 void HumanB::attack(void) {
-	std::cout << _name << " attacks with their weapon " << weapon.getType() << std::endl;
+	std::cout << _name << " attacks with their weapon " << _weapon.getType() << std::endl;
 };

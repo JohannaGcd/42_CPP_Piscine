@@ -10,11 +10,11 @@ class Weapon {
 		std::string _type;
 
 	public:
-		Weapon::Weapon();
-		Weapon::Weapon(std::string type);
+		Weapon();
+		Weapon(std::string type);
 
 		std::string getType(void);
-		void set_type(std::string type);
+		void setType(std::string type);
 };
 
 #endif
