@@ -3,7 +3,7 @@
 Weapon::Weapon() {};
 
 Weapon::Weapon(std::string type) {
-	type = _type;
+	_type = type;
 };
 
 std::string Weapon::getType(void) {
