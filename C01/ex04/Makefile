@@ -3,6 +3,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++11
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
+OUTFILE = *.replace.txt
 
 all: $(NAME)
 
@@ -16,7 +17,7 @@ clean:
 	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(OUTFILE)
 
 re: fclean all
 
