@@ -1,7 +1,7 @@
 NAME = ex05
 CFLAGS = -Wall -Wextra -Werror -std=c++11
 
-SRC = main.cpp 
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

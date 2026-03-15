@@ -13,8 +13,8 @@ class Harl {
         void error (void);
 
     public:
+        Harl();
         void complain (std::string level);
-// use static? const?
 };
 
 #endif
