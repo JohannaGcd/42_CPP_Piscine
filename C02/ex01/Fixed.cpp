@@ -11,8 +11,7 @@ Fixed::Fixed (const Fixed& src) {
 
 	std::cout << "Copy constructor called" << std::endl;
 
-	this->fixedPoint = src.fixedPoint;
-	//fractionalBits ?
+	operator=(src);
 };
 
 Fixed& Fixed::operator= (const Fixed& src) {
@@ -49,12 +48,12 @@ int Fixed::getRawBits (void) const {
 
 void Fixed::setRawBits(int const raw) {
 
-	fixedPoint = raw << fractionalBits;
+	fixedPoint = raw;
 };
 
 float Fixed::toFloat(void) const {
 
-	return fixedPoint / 256.00;
+	return ((float)fixedPoint) / (1 << fractionalBits);
 };
 
 int		Fixed::toInt (void) const {
