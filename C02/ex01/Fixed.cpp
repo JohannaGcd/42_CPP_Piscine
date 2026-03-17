@@ -11,7 +11,7 @@ Fixed::Fixed (const Fixed& src) {
 
 	std::cout << "Copy constructor called" << std::endl;
 
-	fixedPoint = src.fixedPoint;
+	this->fixedPoint = src.fixedPoint;
 	//fractionalBits ?
 };
 
@@ -54,10 +54,15 @@ void Fixed::setRawBits(int const raw) {
 
 float Fixed::toFloat(void) const {
 
-	return fixedPoint / 256;
+	return fixedPoint / 256.00;
 };
 
 int		Fixed::toInt (void) const {
 
-	return fixedPoint * 256;
+	return fixedPoint >> fractionalBits;
+};
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+	out << fixed.toFloat();
+	return out;
 };
