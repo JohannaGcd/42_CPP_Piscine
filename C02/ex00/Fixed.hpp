@@ -8,7 +8,7 @@ class Fixed {
 
     private:
         int fixedPoint;
-        static const int fractionalBits; // = always 8? what's integer literal 8?
+        static const int fractionalBits = 8; // = always 8? what's integer literal 8?
 
     public:
         Fixed ();
@@ -16,8 +16,8 @@ class Fixed {
         Fixed& operator= (const Fixed& other);
         ~Fixed ();
 
-        int     getRawBits (void) const; // why const
-       // void    setRawBits (int const raw);
+        int     getRawBits (void) const;
+        void    setRawBits (int const raw);
 };
 
 #endif
