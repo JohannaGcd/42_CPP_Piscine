@@ -8,7 +8,7 @@ class Fixed {
 
     private:
         int fixedPoint;
-        static const int fractionalBits = 8; // = always 8? what's integer literal 8?
+        static const int fractionalBits = 8;
 
     public:
         Fixed ();

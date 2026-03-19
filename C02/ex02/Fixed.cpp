@@ -1,0 +1,54 @@
+#include "Fixed.hpp"
+
+Fixed::Fixed () {
+	std::cout << "Default constructor called" << std::endl;
+	fixedPoint = 0;
+};
+
+Fixed::Fixed (const Fixed &src) {
+	std::cout << "Copy constructor called" << std::endl;
+	operator=(src);
+};
+
+Fixed& Fixed::operator= (const Fixed &src) {
+	std::cout << "Copy assignment operator called" << std::endl;
+
+	if (this != &src)
+		this->fixedPoint = src.fixedPoint;
+	return *this;
+};
+
+Fixed::Fixed(const int nbr) {
+	std::cout << "Int constructor called" << std::endl;
+	fixedPoint = nbr << fractionalBits;
+};
+
+Fixed::Fixed(const float nbr) {
+	std::cout << "Float constructor called" << std::endl;
+	fixedPoint = roundf(nbr * (1 << fractionalBits));
+};
+
+Fixed::~Fixed() {
+	std::cout << "Destructor called" << std::endl;
+};
+
+int Fixed::getRawBits (void) const {
+	return fixedPoint;
+};
+
+void Fixed::setRawBits (int const raw) {
+	fixedPoint = raw;
+};
+
+float Fixed::toFloat (void) const {
+	return ((float)fixedPoint) / (1 << fractionalBits);
+};
+
+int Fixed::toInt (void) const {
+	return fixedPoint >> fractionalBits;
+};
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+	out << fixed.toFloat();
+	return out;
+};
