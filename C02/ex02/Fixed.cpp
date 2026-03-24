@@ -1,5 +1,9 @@
 #include "Fixed.hpp"
 
+/*
+* *************** Constructors *************** 
+*/
+
 Fixed::Fixed () {
 	std::cout << "Default constructor called" << std::endl;
 	fixedPoint = 0;
@@ -32,6 +36,10 @@ Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 };
 
+/*
+* *************** Public Methods *************** 
+*/
+
 int Fixed::getRawBits (void) const {
 	return fixedPoint;
 };
@@ -48,7 +56,63 @@ int Fixed::toInt (void) const {
 	return fixedPoint >> fractionalBits;
 };
 
+/*
+* *************** Print Operator *************** 
+*/
+
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
 	out << fixed.toFloat();
 	return out;
+};
+
+/*
+* *************** Comparison Operators *************** 
+*/
+
+bool Fixed::operator==(const Fixed &b) const {
+	return fixedPoint == b.fixedPoint;
+};
+
+bool Fixed::operator<(const Fixed &b) const {
+	return fixedPoint < b.fixedPoint;
+};
+
+bool Fixed::operator>(const Fixed &b) const {
+	return fixedPoint > b.fixedPoint;
+};
+
+bool Fixed::operator<=(const Fixed &b) const {
+	return fixedPoint <= b.fixedPoint;
+};
+
+bool Fixed::operator>=(const Fixed &b) const {
+	return fixedPoint >= b.fixedPoint;
+};
+
+bool Fixed::operator!=(const Fixed &b) const {
+	return fixedPoint != b.fixedPoint;
+};
+
+/*
+* *************** Arithmetic Operator *************** 
+*/
+
+Fixed Fixed::operator+(const Fixed &b) const {
+	Fixed res;
+	res.setRawBits(fixedPoint + b.fixedPoint);
+	return res;
+};
+
+Fixed Fixed::operator-(const Fixed &b) const {
+	Fixed res;
+	res.setRawBits(fixedPoint - b.fixedPoint);
+	return res;
+};
+
+Fixed Fixed::operator*(const Fixed &b) const {
+	Fixed res;
+	long long temp = (long long)fixedPoint * (long long)b.fixedPoint;
+	temp = temp / (1 << fractionalBits);
+	res.setRawBits(temp);
+	return res;
 };
