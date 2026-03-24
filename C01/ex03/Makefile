@@ -1,7 +1,7 @@
 NAME = ex03
 CFLAGS = -Wall -Wextra -Werror -std=c++11
 
-SRC = main.cpp Human.cpp Weapon.cpp
+SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
