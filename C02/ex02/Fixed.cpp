@@ -116,3 +116,16 @@ Fixed Fixed::operator*(const Fixed &b) const {
 	res.setRawBits(temp);
 	return res;
 };
+
+Fixed Fixed::operator/(const Fixed &b) const {
+	Fixed res;
+	
+	if (b.fixedPoint == 0)
+	{
+		std::cout << "Unable to divide by 0" << std::endl;
+		return res;
+	}
+	long long temp = ((long long)fixedPoint * (1 << fractionalBits)) / (long long)b.fixedPoint;
+	res.setRawBits(temp);
+	return res;
+};

@@ -36,6 +36,8 @@ class Fixed {
 		Fixed operator+(const Fixed &b) const;
 		Fixed operator-(const Fixed &b) const;
 		Fixed operator*(const Fixed &b) const;
+		Fixed operator/(const Fixed &b) const;
+		
 };
 
 #endif
