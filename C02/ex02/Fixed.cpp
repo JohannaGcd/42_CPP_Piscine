@@ -129,3 +129,34 @@ Fixed Fixed::operator/(const Fixed &b) const {
 	res.setRawBits(temp);
 	return res;
 };
+
+/*
+* *************** Pre/Post Increment Operators *************** 
+*/
+
+Fixed& Fixed::operator++ (void) {
+	fixedPoint = fixedPoint + 1;
+	return *this;
+};
+
+Fixed& Fixed::operator-- (void) {
+	fixedPoint = fixedPoint - 1;
+	return *this;
+};
+
+Fixed Fixed::operator++ (int) {
+	Fixed original = *this;
+	fixedPoint = fixedPoint + 1;
+	return original;
+};
+
+Fixed Fixed::operator-- (int) {
+	Fixed original = *this;
+	fixedPoint = fixedPoint - 1;
+	return original;
+};
+
+
+//MD
+//minoxidil
+//tqff de ton manager
