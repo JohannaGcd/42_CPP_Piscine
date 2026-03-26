@@ -156,7 +156,22 @@ Fixed Fixed::operator-- (int) {
 	return original;
 };
 
+/*
+* *************** Pre/Post Increment Operators *************** 
+*/
 
-//MD
-//minoxidil
-//tqff de ton manager
+Fixed& Fixed::min (Fixed& a, Fixed& b) {
+	return (a < b) ? a : b;
+};
+
+const Fixed& Fixed::min (const Fixed& a, const Fixed& b) {
+	return (a < b) ? a : b;
+};
+
+Fixed& Fixed::max(Fixed& a, Fixed& b) {
+	return (a > b) ? a : b;
+};
+
+const Fixed& Fixed::max(const Fixed &a, const Fixed &b){
+	return (a > b) ? a : b;
+};
