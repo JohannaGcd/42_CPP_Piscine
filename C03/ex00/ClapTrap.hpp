@@ -12,7 +12,13 @@ class ClapTrap {
 		int			attackDamage_ = 0;
 
 	public:
-		void attack (const std::string &target); //this is a string but should be a claptrpa object?
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		~ClapTrap();
+
+		void attack(const std::string &target); // this is a string but should be a claptrpa object?
 		void takeDamage (unsigned int amount);
 		void beRepaired (unsigned int amount);
 };
