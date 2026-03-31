@@ -1,16 +1,16 @@
-#ifndef CLASSTRAP_H
- # define CLASSTRAP_H
+#ifndef CLAPTRAP_H
+ # define CLAPTRAP_H
 
 #include <string>
 #include <iostream>
 
 class ClapTrap {
-	
+
 	private:
 		std::string name_;
-		int	hitPoints_ = 10;
-		int	energyPoints_ = 10;
-		int	attackDamage_ = 0;
+		int hitPoints_ = 10;
+		int energyPoints_ = 10;
+		int attackDamage_ = 0;
 
 	public:
 		ClapTrap();
@@ -19,9 +19,9 @@ class ClapTrap {
 		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
 
-		void attack(const std::string &target); // this is a string but should be a claptrpa object?
+		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
 
-#endif 
+#endif
