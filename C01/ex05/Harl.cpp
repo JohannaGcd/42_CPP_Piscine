@@ -31,14 +31,19 @@ void Harl::error (void) {
 */
 
 void Harl::complain (std::string level) {
-    if (level == "0" || level == "DEBUG")
-        this->debug();
-    else if (level == "1" || level == "INFO")
-        this->info();
-    else if (level == "2" || level == "WARNING")
-        this->warning();
-    else if (level == "3" || level == "ERROR")
-        this->error();
-    else
-        std::cout << "Usage: Input level between 0 and 3 (ex: '0' or 'DEBUG')" << std::endl;
+
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+    void (Harl::*complaintLevel[])() = {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error 
+    };
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (levels[i] == level)
+            (this->*complaintLevel[i])();
+    }    
 }

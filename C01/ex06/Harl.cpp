@@ -7,23 +7,6 @@
 Harl::Harl () {};
 
 /*
-* *************** Helper Functions *************** 
-*/
-
-int convert_level(std::string level) {
-    if (level == "0" || level == "DEBUG")
-        return 0;
-    else if (level == "1" || level == "INFO")
-        return 1;
-    else if (level == "2" || level == "WARNING")
-        return 2;
-    else if (level == "3" || level == "ERROR")
-        return 3;
-    else
-        return -1;
-};
-
-/*
 * *************** Private Methods *************** 
 */
 
@@ -57,34 +40,33 @@ void Harl::error (void) {
 
 void Harl::complain (std::string level) {
 
-    int lvl = convert_level(level);
+    int i;
 
-    if (lvl != -1) {
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-        switch (lvl) {
-            case 0:
-                this->debug();
-                this->info();
-                this->warning();
-                this->error();
-                break;
-            case 1:
-                this->info();
-                this->warning();
-                this->error();
-                break;
-            case 2:
-                this->warning();
-                this->error();
-                break;
-            case 3:
-                this->error();
-                break;
-        }
+    for (i = 0; i < 4; i++)
+    {
+        if (levels[i] == level)
+            break;
     }
-    else
-        std::cout << "Usage: Input level between 0 and 3 (ex: '0' or 'DEBUG')"  << std::endl;
 
+    switch (i)
+    {
+        case 0:
+            debug();
+            //FALLTRHOUGH
+        case 1:
+            info();
+            //FALLTRHOUGH
+        case 2:
+            warning();
+            //FALLTRHOUGH
+        case 3:
+            error();
+            break;
+        default:
+            std::cout << "this is not a valid argument" << std::endl;
+    }
 }
 
     

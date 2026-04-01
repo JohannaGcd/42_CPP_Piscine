@@ -17,6 +17,12 @@ int main(int argc, char **argv) {
         size_t pos;
 
         std::ifstream inputFile(argv[1], std::ios::in);
+        if (!inputFile)
+        {
+            std::cerr << "Error opening input file" << std::endl;
+            return (1);
+        }
+
         std::string outfile = argv[1];
         outfile = outfile.substr(0, outfile.find_last_of(".")).append(".replace.txt");
         std::ofstream outputFile(outfile, std::ios::out);
