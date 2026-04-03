@@ -6,7 +6,7 @@
 
 class ClapTrap {
 	
-	private:
+	protected: // this should be private in subject, but switched to protected for UT
 		std::string name_;
 		int	hitPoints_ = 10;
 		int	energyPoints_ = 10;
