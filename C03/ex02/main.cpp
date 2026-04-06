@@ -49,13 +49,13 @@ static void testInheritedBehaviors() {
 	check(a.getEnergyPoints() == energyBeforeRepair - 1, "beRepaired consumes 1 energy point");
 }
 
-// static void testSpecialAbility() {
-// 	std::cout << "\n=== testSpecialAbility ===" << std::endl;
-// 	TestFragTrap a("Max");
+static void testSpecialAbility() {
+	std::cout << "\n=== testSpecialAbility ===" << std::endl;
+	TestFragTrap a("Max");
 
-// 	a.highFivesGuys();
-// 	check(true, "highFivesGuys is callable");
-// }
+	a.highFivesGuys();
+	check(true, "highFivesGuys is callable");
+}
 
 static void testConstructionDestructionChaining() {
 	std::cout << "\ntestConstructionDestructionChaining" << std::endl;
@@ -73,7 +73,7 @@ int main() {
 
 	testDefaultValues();
 	testInheritedBehaviors();
-	// testSpecialAbility();
+	testSpecialAbility();
 	testConstructionDestructionChaining();
 
 	std::cout << "\n=== Summary ===" << std::endl;
