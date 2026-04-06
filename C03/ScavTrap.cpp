@@ -39,7 +39,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other) {
 };
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap deconstructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 /*

@@ -1,5 +1,9 @@
 #include "DiamondTrap.hpp"
 
+/*
+*************** Constructors *************** 
+*/
+
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), FragTrap(), ScavTrap(), name_("Default") {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 
@@ -8,7 +12,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), FragTrap(), ScavTrap
 	attackDamage_ = 30;
 }
 
-DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap(), name_(name) {
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap(), name_(name) {
 	std::cout << "DiamondTrap parameterized constructor called" << std::endl;
 
 	hitPoints_ = 100;
@@ -30,6 +34,18 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other) {
 	return *this;
 }
 
-void DiamondTrap::WhoAmI() {
-	std::cout << "My name are: " << name_ << " and " << ClapTrap::name_ << std::endl;
-};
+DiamondTrap::~DiamondTrap() {
+	std::cout << "DiamondTrap destructor called" << std::endl;
+}
+
+/*
+*************** Public Methods ***************
+*/
+
+void DiamondTrap::attack(const std::string& target) {
+	ScavTrap::attack();
+}
+
+void DiamondTrap::whoAmI() {
+	std::cout << "My names are: " << name_ << " and " << ClapTrap::name_ << std::endl;
+}
