@@ -43,7 +43,7 @@ DiamondTrap::~DiamondTrap() {
 */
 
 void DiamondTrap::attack(const std::string& target) {
-	ScavTrap::attack();
+	ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI() {
