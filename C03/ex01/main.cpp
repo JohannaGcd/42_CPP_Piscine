@@ -40,11 +40,7 @@ static void testDefaultValues() {
 
 static void testAttackAndEnergyConsumption() {
 	std::cout << "\n=== testAttackAndEnergyConsumption ===" << std::endl;
-	TestScavTrap atestDefaultValues();
-	testAttackAndEnergyConsumption();
-	testInheritedBehaviors();
-	testCopyConstructorAndAssignment();
-	testConstructionDestructionChaining();("Attacker");
+	TestScavTrap a ("Attacker");
 	int beforeEnergy = a.getEnergyPoints();
 	a.attack("target-1");
 	check(a.getEnergyPoints() == beforeEnergy - 1, "ScavTrap attack consumes 1 energy point");

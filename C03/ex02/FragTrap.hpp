@@ -1,5 +1,5 @@
 #ifndef FRAGTRAP_H
- # define FRAGTRAP_h
+ # define FRAGTRAP_H
 
 #include "ClapTrap.hpp"
 
