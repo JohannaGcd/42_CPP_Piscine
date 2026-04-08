@@ -1,4 +1,4 @@
-NAME = ex03
+NAME = ex02
 CFLAGS = -Wall -Wextra -Werror -std=c++11
 
 SRC = main.cpp ClapTrap.cpp FragTrap.cpp

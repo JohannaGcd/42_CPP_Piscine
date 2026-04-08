@@ -6,7 +6,7 @@
 
 class ClapTrap {
 	
-	protected: // this should be private in subject, but switched to protected for UT
+	private: // switch to protected for UT
 		std::string name_;
 		int	hitPoints_ = 10;
 		int	energyPoints_ = 10;
@@ -19,7 +19,7 @@ class ClapTrap {
 		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
 
-		void attack(const std::string &target); // this is a string but should be a claptrpa object?
+		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

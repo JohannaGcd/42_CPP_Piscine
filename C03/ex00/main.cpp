@@ -42,6 +42,7 @@ static void testSingleAttack() {
 }
 
 static void testExhaustEnergyAndRepair() {
+    std::cout << "\n=== testExhaustEnergyAndRepair ===" << std::endl;
     TestClapTrap a("Alice");
     for (int i = 0; i < 10; i++) {
         a.attack("Bob");

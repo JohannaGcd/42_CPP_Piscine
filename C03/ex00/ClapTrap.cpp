@@ -62,8 +62,6 @@ void ClapTrap::takeDamage(unsigned int amount) {
 	hitPoints_ -= amount;
 
 	std::cout << "ClapTrap " << name_ << " takes damage! " << amount << " energy points have been lost!\n";
-	// if energypoints < 0, do we print a death message? call deconstructor?
-
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
