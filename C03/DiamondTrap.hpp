@@ -6,9 +6,8 @@
 
 
 class DiamondTrap : public FragTrap, public ScavTrap {
-	private:
+	private: //change to protected to run the UT testss
 		std::string name_;
-
 
 	public:
 		DiamondTrap();
