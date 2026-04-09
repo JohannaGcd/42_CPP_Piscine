@@ -24,3 +24,7 @@ Animal &Animal::operator=(const Animal &other) {
 Animal::~Animal() {
 	std::cout << "Destructor: Animal object was destroyed." << std::endl;
 }
+
+void Animal::makeSound(void) const {
+	std::cout << "Generic animal sound" << std::endl;
+}
