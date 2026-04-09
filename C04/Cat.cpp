@@ -1,7 +1,6 @@
 #include "Cat.hpp"
 #include <iostream>
 
-
 Cat::Cat() : Animal("Cat") {
 		std::cout << "Default constructor: Cat object was created." << std::endl;
 }
