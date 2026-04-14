@@ -7,7 +7,7 @@ Dog::Dog() : Animal("Dog"), brain(new Brain()) {
 
 Dog::Dog(const std::string &type) : Animal("Dog"), brain(new Brain()) {
 	(void)type;
-
+	
 	std::cout << "Parameterized constructor: Dog object was created." << std::endl;
 }
 

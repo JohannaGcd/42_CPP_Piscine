@@ -2,8 +2,12 @@
  # define CAT_H
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
+	private:
+		Brain *brain;
+
 	public:
 		Cat();
 		Cat(const std::string &type);
@@ -12,6 +16,8 @@ class Cat : public Animal {
 		~Cat();
 
 		void makeSound(void) const override;
+		void setIdea(std::string idea, int index);
+		std::string getIdea(int index) const;
 };
 
 #endif
