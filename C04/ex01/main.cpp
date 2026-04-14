@@ -3,6 +3,12 @@
 #include "Brain.hpp"
 
 int main(void) {
-	Dog Dawg;
-	Dawg.brain.setIdea("cookies");
+	Animal *j = new Dog();
+	Dog *doggo = new Dog();
+
+	doggo->setIdea("Bone", 0);
+
+
+	delete j;
+	delete doggo;
 }
