@@ -2,20 +2,20 @@
 #include <iostream>
 
 WrongCat::WrongCat() : WrongAnimal("Cat") {
-		std::cout << "Default constructor: Cat object was created." << std::endl;
+		std::cout << "Default constructor: WrongCat object was created." << std::endl;
 }
 
 WrongCat::WrongCat(const std::string &type) : WrongAnimal("Cat") {
 	(void)type;
-	std::cout << "Parameterized constructor: Cat object was created." << std::endl;
+	std::cout << "Parameterized constructor: WrongCat object was created." << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other) {
-	std::cout << "Copy constructor: Cat object was created." << std::endl;
+	std::cout << "Copy constructor: WrongCat object was created." << std::endl;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &other) {
-	std::cout << "Copy assignment operator: Cat object was assigned." << std::endl;
+	std::cout << "Copy assignment operator: WrongCat object was assigned." << std::endl;
 
 	if (this != &other) {
 		WrongAnimal::operator=(other);
@@ -24,7 +24,7 @@ WrongCat &WrongCat::operator=(const WrongCat &other) {
 }
 
 WrongCat::~WrongCat() {
-	std::cout << "Destructor: Cat object was destroyed." << std::endl;
+	std::cout << "Destructor: WrongCat object was destroyed." << std::endl;
 }
 
 void WrongCat::makeSound(void) const {

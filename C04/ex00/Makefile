@@ -1,4 +1,4 @@
-NAME = ex0
+NAME = ex00
 CFLAGS = -Wall -Wextra -Werror -std=c++11
 
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
