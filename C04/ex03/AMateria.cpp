@@ -17,6 +17,6 @@ const std::string& AMateria::getType() const {
     return _type;
 }
 
-// void AMateria::use(ICharacter& target) {
-
-// }
+void AMateria::use(ICharacter& target) {
+    
+}

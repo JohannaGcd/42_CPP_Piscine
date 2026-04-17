@@ -2,6 +2,7 @@
 # define ICE_H
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Ice : public AMateria {
 
@@ -12,6 +13,7 @@ class Ice : public AMateria {
             ~Ice();
 
             Ice* clone() const override;
+            void use(ICharacter &target) override;
 };
 
 #endif
