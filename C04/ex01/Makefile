@@ -1,5 +1,5 @@
 NAME = ex01
-CFLAGS = -Wall -Wextra -Werror -std=c++11 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++11
 
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
