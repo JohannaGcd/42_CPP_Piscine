@@ -6,4 +6,5 @@ int main(void) {
 
 	Dog M;
 	M.makeSound();
+
 }

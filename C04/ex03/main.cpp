@@ -40,10 +40,9 @@ int main(void) {
         delete unknown;
     }
 
-    printHeader("Inventory limit and invalid indexes");
+    printHeader("Inventory - invalid indexes");
     me->equip(src->createMateria("ice"));
     me->equip(src->createMateria("cure"));
-    me->equip(src->createMateria("ice"));
     me->use(2, *bob);
     me->use(3, *bob);
     me->use(4, *bob);
