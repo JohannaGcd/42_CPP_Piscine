@@ -5,17 +5,25 @@
 
 class Bureaucrat {
 	private:
-		const std::string name_;
+		std::string name_;
 		int grade_;
 
 	public:
-		const std::string getName();
-		const std::string getGrade();
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade_);
+		Bureaucrat(const Bureaucrat &src);
+		Bureaucrat &operator=(const Bureaucrat &src);
+		~Bureaucrat();
+
+		std::string getName();
+		void setName(std::string name);
+		int getGrade();
+		void setGrade(int n);
 		void incrementGrade(int n);
 		void decrementGrade(int n);
 		void GradeTooHighException();
 		void GradeTooLowException();
-		vpo
-}
+		void operator<< (const Bureaucrat& src) const;
+};
 
 #endif
