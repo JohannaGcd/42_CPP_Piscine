@@ -25,11 +25,11 @@ Bureaucrat::~Bureaucrat() {}
  * *************** Methods: Getters/Setters ***************
  */
 
-std::string Bureaucrat::getName() {
+const std::string& Bureaucrat::getName() const {
 	return name_;
 }
 
-int Bureaucrat::getGrade() {
+int Bureaucrat::getGrade() const {
 	return grade_;
 }
 

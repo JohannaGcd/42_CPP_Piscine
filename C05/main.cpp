@@ -26,3 +26,8 @@ int main(void) {
 	A.setGrade(50);
 	std::cout << "set A grade to 50: " << A.getGrade() << std::endl;
 }
+
+// TODO:
+// - correct operator<< to write into the stream
+// - correct constructor so that it enforces giving a name (name should be const) and delete setName method
+// - implement exception block & borders (for increment / decrementing and setting grade!)
