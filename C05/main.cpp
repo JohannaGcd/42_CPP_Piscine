@@ -31,3 +31,39 @@ int main(void) {
 // - correct operator<< to write into the stream
 // - correct constructor so that it enforces giving a name (name should be const) and delete setName method
 // - implement exception block & borders (for increment / decrementing and setting grade!)
+
+
+// HOW TO THROW CUSTOM EXCEPTIONS:
+
+// #include <iostream>
+// #include <exception>
+
+// class TooSmallException : public std::exception {
+// public:
+//     const char* what() const throw() {
+//         return "value is too small";
+//     }
+// };
+
+// void setValue(int value) {
+//     if (value < 10) {
+//         throw TooSmallException();
+//     }
+//     std::cout << "Value accepted: " << value << std::endl;
+// }
+
+// int main() {
+//     try {
+//         setValue(3);
+//     }
+//     catch (std::exception &e) {
+//         std::cout << "Error: " << e.what() << std::endl;
+//     }
+// }
+
+// How this works:
+
+// throw interrupts the normal flow and sends an error object upward.
+// try marks the code that might fail.
+// catch handles the exception.
+// what() gives a short error message.
