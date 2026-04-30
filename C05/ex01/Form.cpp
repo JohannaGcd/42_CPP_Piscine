@@ -1,12 +1,11 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-Form::Form(const std::string name, const int grade_cansign, const int grade_canexec) : name_(name), grade_cansign_(grade_cansign), grade_canexec_(grade_canexec) : name_(name) {
-	if (grade_cansign < 1 || grade_canexec
-	
-	// TODO include exceptions here
-	, const int grade_canexec) : name_(name), grade_cansign_(grade_cansign);
-	
-	grade_canexec_(grade_canexec)
+Form::Form(const std::string name, const int grade_cansign, const int grade_canexec) : name_(name), grade_cansign_(grade_cansign), grade_canexec_(grade_canexec) {
+	if (grade_cansign < 1 || grade_canexec < 1 )
+		throw GradeTooHighException();
+	if (grade_cansign > 150 || grade_canexec > 150)
+		throw GradeTooLowException();
 }
 
 

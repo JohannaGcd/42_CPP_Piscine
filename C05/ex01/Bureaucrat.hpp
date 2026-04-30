@@ -5,6 +5,8 @@
 #include <exception>
 #include <iostream>
 
+class Form;
+
 class Bureaucrat {
 	private:
 		const std::string name_;
@@ -20,6 +22,7 @@ class Bureaucrat {
 		int getGrade() const;
 		void incrementGrade(int n);
 		void decrementGrade(int n);
+
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw() {
@@ -32,6 +35,8 @@ class Bureaucrat {
 					return "grade is too low";
 				}
 		};
+
+		void signForm(Form& f);
 };
 
 std::ostream& operator<< (std::ostream& out, const Bureaucrat& src); 

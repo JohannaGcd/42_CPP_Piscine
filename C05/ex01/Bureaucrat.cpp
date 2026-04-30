@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 /*
 * *************** Constructors *************** 
@@ -48,6 +49,15 @@ void Bureaucrat::decrementGrade(int n) {
 		throw GradeTooLowException();
 	else
 		grade_ += n;
+}
+
+void Bureaucrat::signForm(Form& f) {
+	try {
+		f.beSigned(*this);
+	}
+	catch (std::exception& e) {
+		std::cout << this->getName() << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 /*
