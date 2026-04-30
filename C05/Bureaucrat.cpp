@@ -1,19 +1,22 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
 
 /*
 * *************** Constructors *************** 
 */
 
-Bureaucrat::Bureaucrat() : name_("default"), grade_(0) {}
-
-Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name), grade_(grade) {}
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name) {
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	else
+		grade_ = grade;
+}
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src) : name_(src.name_), grade_(src.grade_) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &src) {
 	if (this != &src) {
-		name_ = src.name_;
 		grade_ = src.grade_;
 	}
 	return (*this);
@@ -33,20 +36,18 @@ int Bureaucrat::getGrade() const {
 	return grade_;
 }
 
-void Bureaucrat::setName(std::string name) {
-	name_ = name;
-}
-
-void Bureaucrat::setGrade(int n) {
-	grade_ = n;
-}
-
 void Bureaucrat::incrementGrade(int n) {
-	grade_ -= n;
+	if (grade_ - n < 1)
+		throw GradeTooHighException();
+	else
+		grade_ -= n;
 }
 
 void Bureaucrat::decrementGrade(int n) {
-	grade_ += n;
+	if (grade_ + n > 150)
+		throw GradeTooLowException();
+	else
+		grade_ += n;
 }
 
 /*
@@ -60,6 +61,7 @@ void Bureaucrat::decrementGrade(int n) {
 * *************** Methods: Print *************** 
 */
 
-void Bureaucrat::operator<< (const Bureaucrat& src) const {
-	std::cout << src.name_ << ", bureaucrat grade " << src.grade_ << std::endl;
+std::ostream& operator<< (std::ostream& out, const Bureaucrat& src) {
+	out << src.getName() << ", bureaucrat grade " << src.getGrade() << ".";
+	return out;
 }
