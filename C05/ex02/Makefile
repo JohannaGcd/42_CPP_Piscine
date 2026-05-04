@@ -1,7 +1,7 @@
 NAME = ex02
 CFLAGS = -Wall -Wextra -Werror -std=c++11
 
-SRC = main.cpp Form.cpp Bureaucrat.cpp
+SRC = main.cpp AForm.cpp Bureaucrat.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -13,7 +13,8 @@ $(NAME): $(OBJ)
 	c++ $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) 
+	rm *.txt
 
 fclean: clean
 	rm -rf $(NAME)

@@ -19,7 +19,7 @@ class AForm {
 		~AForm();
 
 		std::string getName() const;
-		bool get_is_signed_() const;
+		bool get_is_signed_() const; // change to isSigned()
 		int getGrade_cansign() const;
 		int getGrade_canexec() const;
 
