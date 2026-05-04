@@ -13,7 +13,7 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 		~ShrubberyCreationForm();
 
-		void createFile() const;
+		void execute() const;
 };
 
 #endif

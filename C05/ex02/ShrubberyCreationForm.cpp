@@ -15,7 +15,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::createFile() const {
+void ShrubberyCreationForm::execute() const {
 
 	std::string str1 = "    *    ";
 	std::string str2 = "   ***   ";

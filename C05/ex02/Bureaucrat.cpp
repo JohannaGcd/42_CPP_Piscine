@@ -60,6 +60,11 @@ void Bureaucrat::signForm(AForm& f) {
 	}
 }
 
+void Bureaucrat::executeForm(AForm const &form) const {
+	form.executeForm(*this);
+
+}
+
 /*
 * *************** Methods: Print *************** 
 */

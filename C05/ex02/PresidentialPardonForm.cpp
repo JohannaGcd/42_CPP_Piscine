@@ -14,6 +14,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-void PresidentialPardonForm::execPresidentialPardon() const {
+void PresidentialPardonForm::execute() const {
 	std::cout << this->target_ << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

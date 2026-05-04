@@ -13,7 +13,7 @@ class RobotomyRequestForm : public AForm {
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
 		~RobotomyRequestForm();
 
-		void performRobotomy() const;
+		void execute() const;
 };
 
 #endif

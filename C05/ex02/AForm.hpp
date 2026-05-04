@@ -22,6 +22,8 @@ class AForm {
 		bool get_is_signed_() const; // change to isSigned()
 		int getGrade_cansign() const;
 		int getGrade_canexec() const;
+		void beSigned(Bureaucrat &b);
+		void executeForm(Bureaucrat const &executor);
 
 		class GradeTooHighException : public std::exception {
 		public:
@@ -38,8 +40,13 @@ class AForm {
 				return "grade is too low";
 			}
 		};
-
-	void beSigned(Bureaucrat &b);
+	
+	class FormSignatureException: public std::exception {
+		public:
+			const char *what() const throw() {
+				return "Form what not signed";
+			}
+	};
 };
 
 std::ostream &operator<<(std::ostream &out, AForm &src);
