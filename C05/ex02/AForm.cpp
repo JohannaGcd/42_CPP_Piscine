@@ -43,11 +43,13 @@ void AForm::beSigned(Bureaucrat &b) {
 		throw GradeTooLowException();
 }
 
-void AForm::executeForm(Bureaucrat const &executor) {
+void AForm::executeAction(Bureaucrat const &executor) const {
 	if (this->is_signed_ == false)
 		throw FormSignatureException();
 	if (executor.getGrade() > this->grade_cansign_)
 		throw GradeTooLowException();
+	else
+		this->execute();
 }
 
 std::ostream &operator<<(std::ostream &out, AForm &src) {

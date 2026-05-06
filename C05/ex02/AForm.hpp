@@ -23,7 +23,8 @@ class AForm {
 		int getGrade_cansign() const;
 		int getGrade_canexec() const;
 		void beSigned(Bureaucrat &b);
-		void executeForm(Bureaucrat const &executor);
+		virtual void execute() const = 0;
+		void executeAction(Bureaucrat const &executor) const;
 
 		class GradeTooHighException : public std::exception {
 		public:

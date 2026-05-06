@@ -14,7 +14,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -rf $(OBJ) 
-	rm *.txt
+	rm -f *.txt
 
 fclean: clean
 	rm -rf $(NAME)
