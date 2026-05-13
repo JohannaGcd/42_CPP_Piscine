@@ -14,6 +14,7 @@ class ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm();
 
 		void execute() const override;
+		std::string getTarget() const override;
 };
 
 #endif

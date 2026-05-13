@@ -40,3 +40,7 @@ void ShrubberyCreationForm::execute() const {
 	outputFile.close();
 	return;
 }
+
+std::string ShrubberyCreationForm::getTarget() const {
+	return target_;
+}

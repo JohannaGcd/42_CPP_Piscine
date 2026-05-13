@@ -14,6 +14,7 @@ class PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm();
 
 		void execute() const override;
+		std::string getTarget() const override;
 };
 
 #endif

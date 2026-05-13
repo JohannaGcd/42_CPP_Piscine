@@ -25,3 +25,7 @@ void RobotomyRequestForm::execute() const {
 	else
 		std::cout << "Robotomy failed." << std::endl;
 }
+
+std::string RobotomyRequestForm::getTarget() const {
+	return target_;
+}

@@ -2,6 +2,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <vector>
 
 Intern::Intern() {};
 
@@ -14,11 +15,11 @@ Intern::Intern() {};
 AForm* Intern::makeForm(std::string name, std::string target) {
 
 	try {
-		if (name.find("robotomy"))
+		if (name.find("robotomy") != std::string::npos) 
 			return new RobotomyRequestForm(target);
-		else if (name.find("presidential"))
+		else if (name.find("presidential") != std::string::npos) 
 			return new PresidentialPardonForm(target);
-		else if (name.find("shrubbery"))
+		else if (name.find("shrubbery") != std::string::npos)
 			return new ShrubberyCreationForm(target);
 		else
 			std::cout << "Wrong name" << std::endl;
