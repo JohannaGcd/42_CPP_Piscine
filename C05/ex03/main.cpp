@@ -5,22 +5,38 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include <array>
 
 int main(void) {
     try {
         Intern I;
-        AForm* f1;
-        f1 = I.makeForm("robotomy ret", "Bender");
-        std::cout << f1->getName() << std::endl;
-       // std::cout << f1->getTarget() << std::endl;
-               //delete (f1);
+        Bureaucrat bu("Emeric", 1);
+
+        std::cout << "Create valid forms, sign and execute." << std::endl;
+
+        std::array<std::string, 3> formNames = { "shrubbery creation", "robotomy request", "presidential pardon"};
+
+
+        for (const auto& formName : formNames) {
+            AForm *tr = I.makeForm(formName, "<test>");
+            if (!tr)
+                break;
+        
+            std::cout << tr << std::endl;
+            bu.signForm(*tr);
+            bu.executeForm(*tr);
+            delete (tr);
+            std::cout << std::endl;
+        }
+
+        std::cout << "Create Invalid form." << std::endl;
+
+        I.makeForm("wrong name", "test");
+
     }
     catch (std::exception &e) {
         std::cout << "Error: " << e.what() << std::endl;
     }
-
-    std::cout << std::endl;
-
 
     return 0;
 }
