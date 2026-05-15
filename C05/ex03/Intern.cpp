@@ -2,7 +2,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <vector>
+#include <functional>
 
 Intern::Intern() {};
 
@@ -14,18 +14,29 @@ Intern::Intern() {};
 
 AForm* Intern::makeForm(std::string name, std::string target) {
 
-	try {
-		if (name.find("robotomy") != std::string::npos) 
-			return new RobotomyRequestForm(target);
-		else if (name.find("presidential") != std::string::npos) 
-			return new PresidentialPardonForm(target);
-		else if (name.find("shrubbery") != std::string::npos)
-			return new ShrubberyCreationForm(target);
-		else
-			std::cout << "Wrong name" << std::endl;
+	struct Form {
+		std::string name;
+		std::function<AForm*(const std::string&)> allocator;
+	};
+
+	Form forms[] = {
+		{"shrubbery creation", [](const std::string &target) {
+			return (new ShrubberyCreationForm(target)); 
+		}},
+		{"robotomy request", [](const std::string &target) { 
+			return (new RobotomyRequestForm(target)); 
+		}},
+		{"presidential pardon", [](const std::string &target) { 
+			return (new PresidentialPardonForm(target)); 
+		}}
+	};
+
+	for (const Form& form : forms) {
+		if (form.name == name) {
+			std::cout << "Intern creates " << name << std::endl;
+			return (form.allocator(target));
+		}
 	}
-	catch (std::exception &e) {
-		std::cout << "Error : " << std::endl;
-	}
-	return NULL;
+	std::cerr << "form name: \'" << name << "\' not recognized." << std::endl;
+	return (nullptr);
 }

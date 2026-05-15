@@ -10,10 +10,10 @@ int main(void) {
     try {
         Intern I;
         AForm* f1;
-        f1 = I.makeForm("robotomy request", "Bender");
+        f1 = I.makeForm("robotomy ret", "Bender");
         std::cout << f1->getName() << std::endl;
-        std::cout << f1->getTarget() << std::endl;
-        delete (f1);
+       // std::cout << f1->getTarget() << std::endl;
+               //delete (f1);
     }
     catch (std::exception &e) {
         std::cout << "Error: " << e.what() << std::endl;
