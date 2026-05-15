@@ -51,13 +51,6 @@ void Bureaucrat::decrementGrade(int n) {
 }
 
 /*
-* *************** Methods: Throw Exceptions *************** 
-*/
-
-// void Bureaucrat::GradeTooHighException();
-// void Bureaucrat::GradeTooLowException();
-
-/*
 * *************** Methods: Print *************** 
 */
 

@@ -7,9 +7,9 @@ int main(void) {
     try {
         Form f1("Form A", 50, 25);
         std::cout << f1;
-        // std::cout << "Grade to sign: " << f1.getGrade_cansign() << std::endl;
-        // std::cout << "Grade to execute: " << f1.getGrade_canexec() << std::endl;
-        // std::cout << "Is signed: " << f1.get_is_signed_() << std::endl;
+        std::cout << "Grade to sign: " << f1.getGrade_cansign() << std::endl;
+        std::cout << "Grade to execute: " << f1.getGrade_canexec() << std::endl;
+        std::cout << "Is signed: " << f1.get_is_signed_() << std::endl;
 
         // Test beSigned with eligible Bureaucrat
         Bureaucrat b1("Alice", 50);
