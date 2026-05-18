@@ -18,11 +18,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 void ShrubberyCreationForm::execute() const {
 
 	std::string str1 = "    *    ";
-	std::string str2 = "   ***   ";
-	std::string str3 = "  *****  ";
-	std::string str4 = "    |    ";
-	std::string str5 = "    |    ";
-				
+
+	str1.append("   ***   \n").append("  *****  \n").append("    |    \n").append("    |    \n");
+
 	std::string outfile = target_ + "_shrubbery.txt";
 
 	std::ofstream outputFile(outfile, std::ios::out);
@@ -32,11 +30,6 @@ void ShrubberyCreationForm::execute() const {
 	}
 
 	outputFile << str1 << std::endl;
-	outputFile << str2 << std::endl;
-	outputFile << str3 << std::endl;
-	outputFile << str4 << std::endl;
-	outputFile << str5 << std::endl;
-
 	outputFile.close();
 	return;
 }

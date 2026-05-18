@@ -26,7 +26,7 @@ int main(void) {
     try
     {
         RobotomyRequestForm f2("home");
-        Bureaucrat b2("Bea", 120);
+        Bureaucrat b2("Bea", 20);
 
         std::cout << " [ TEST - SHOULD FAIL ]" << std::endl;
         std::cout << "RobotomyRequestForm: [72, 45]" << std::endl;

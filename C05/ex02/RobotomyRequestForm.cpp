@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), target_(target) {}
 
@@ -16,7 +17,8 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute() const {
-	int value = rand();
+	std::srand(std::time({}));
+	int value = std::rand();
 
 	std::cout << "[ drilling noise ... ]" << std::endl;
 

@@ -6,12 +6,6 @@
 
 Intern::Intern() {};
 
-// Intern::Intern(const Intern &src) {};
-
-// Intern& Intern::operator=(const Intern &src) {
-// 	return *this;
-// }
-
 AForm* Intern::makeForm(std::string name, std::string target) {
 
 	struct Form {

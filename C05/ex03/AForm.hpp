@@ -12,6 +12,10 @@ class AForm {
 		const int grade_cansign_;
 		const int grade_canexec_;
 
+
+	protected:
+		virtual void execute() const = 0;
+
 	public:
 		AForm(const std::string name, const int grade_cansign, const int grade_canexec);
 		AForm(const AForm &src);
@@ -23,13 +27,13 @@ class AForm {
 		int getGrade_cansign() const;
 		int getGrade_canexec() const;
 		void beSigned(Bureaucrat &b);
-		virtual void execute() const = 0;
+
 		void executeAction(Bureaucrat const &executor) const;
 		virtual std::string getTarget() const = 0;
 
 		class GradeTooHighException : public std::exception {
 		public:
-			const char *what() const throw()
+			const char *what() const noexcept 
 			{
 				return "grade is too high";
 			}
@@ -37,7 +41,7 @@ class AForm {
 
 	class GradeTooLowException : public std::exception {
 		public:
-			const char *what() const throw()
+			const char *what() const noexcept 
 			{
 				return "grade is too low";
 			}
@@ -45,7 +49,7 @@ class AForm {
 	
 	class FormSignatureException: public std::exception {
 		public:
-			const char *what() const throw() {
+			const char *what() const noexcept {
 				return "Form what not signed";
 			}
 	};

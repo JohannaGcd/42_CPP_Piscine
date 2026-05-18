@@ -4,7 +4,7 @@
 * *************** Constructors *************** 
 */
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name) {
+Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name_(name) {
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
@@ -36,14 +36,14 @@ int Bureaucrat::getGrade() const {
 	return grade_;
 }
 
-void Bureaucrat::incrementGrade(int n) {
+void Bureaucrat::incrementGrade(unsigned int n) {
 	if (grade_ - n < 1)
 		throw GradeTooHighException();
 	else
 		grade_ -= n;
 }
 
-void Bureaucrat::decrementGrade(int n) {
+void Bureaucrat::decrementGrade(unsigned int n) {
 	if (grade_ + n > 150)
 		throw GradeTooLowException();
 	else

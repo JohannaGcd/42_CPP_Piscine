@@ -16,7 +16,6 @@ int main(void) {
 
         std::array<std::string, 3> formNames = { "shrubbery creation", "robotomy request", "presidential pardon"};
 
-
         for (const auto& formName : formNames) {
             AForm *tr = I.makeForm(formName, "<test>");
             if (!tr)
@@ -31,7 +30,9 @@ int main(void) {
 
         std::cout << "Create Invalid form." << std::endl;
 
-        I.makeForm("wrong name", "test");
+        AForm* ptr = I.makeForm("wrong name", "test");
+        if (ptr == nullptr)
+            std::cout << "allocation error" << std::endl;
 
     }
     catch (std::exception &e) {
