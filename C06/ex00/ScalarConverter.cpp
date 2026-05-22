@@ -10,15 +10,29 @@
 
 // }
 
+
+
+ScalarConverter::ScalarConverter() {};
+
 std::string recognize_type(const std::string &str)
 {
 	if (str.size() == 1 && (str[0] > 0 && str[0] < 127))
 		return "char";
-	return "other";
+	else if (str.find('.') && str.find('f')) // check return value of find and update this method
+			return "float";
+	else if (str.find('.') && !str.find('f'))
+		return "double";
+
+	for (char c : str) 
+	{
+		if (c < 48 || c > 57)
+			break;
+		return "string";
+	}
+	return "integer";
+
+	//return "other";
 }
-
-ScalarConverter::ScalarConverter() {};
-
 
 // Recognize this is an int literal, parse it to get the number 42, then show what 42 looks like as a char, int, float, and double
 
