@@ -3,8 +3,8 @@
 
  #include <string>
 
-class ScalarConverter {
-
+class ScalarConverter 
+{
 	private:
 		ScalarConverter();
 		~ScalarConverter();
