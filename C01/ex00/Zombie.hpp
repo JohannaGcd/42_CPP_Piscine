@@ -1,21 +1,20 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 #ifndef ZOMBIE_H
-# define ZOMBIE_H
+#define ZOMBIE_H
 
 class Zombie {
+ private:
+  std::string _name;
 
-	private:
-		std::string _name;
-	
-	public:
-		Zombie();
-		Zombie(std::string name);
-		~Zombie();
+ public:
+  Zombie();
+  Zombie(std::string name);
+  ~Zombie();
 
-		void		announce(void);
-		std::string get_name(void);
+  void announce(void);
+  std::string get_name(void);
 };
 
 #endif

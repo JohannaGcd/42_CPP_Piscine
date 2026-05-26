@@ -1,20 +1,19 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 #ifndef HARL_H
-    #define HARL_H
+#define HARL_H
 
 class Harl {
+ private:
+  void debug(void);
+  void info(void);
+  void warning(void);
+  void error(void);
 
-    private:
-        void debug (void);
-        void info (void);
-        void warning (void);
-        void error (void);
-
-    public:
-        Harl();
-        void complain (std::string level);
+ public:
+  Harl();
+  void complain(std::string level);
 };
 
 #endif

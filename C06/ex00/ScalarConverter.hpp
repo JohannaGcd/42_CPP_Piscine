@@ -9,7 +9,7 @@ class ScalarConverter {
   ~ScalarConverter();
 
  public:
-  static void convert(const std::string& str);
+  static void convert(const std::string &str);
 };
 
 #endif

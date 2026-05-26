@@ -1,25 +1,22 @@
 #include "Zombie.hpp"
 
 Zombie *newZombie(std::string name) {
+  Zombie *newZombie = new Zombie(name);
 
-	Zombie *newZombie = new Zombie(name);
-
-	return newZombie;
+  return newZombie;
 };
 
 void randomChump(std::string name) {
-
-	Zombie randomChump(name);
-	randomChump.announce();
+  Zombie randomChump(name);
+  randomChump.announce();
 };
 
 int main(void) {
+  Zombie *Edward = newZombie("Edward");
+  (*Edward).announce();
 
-	Zombie *Edward = newZombie("Edward");
-	(*Edward).announce();
+  randomChump("Jacob");
 
-	randomChump("Jacob");
-
-	delete Edward;
-	Edward = NULL;
+  delete Edward;
+  Edward = NULL;
 }
