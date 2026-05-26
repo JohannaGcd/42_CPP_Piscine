@@ -1,5 +1,6 @@
-#include "ScalarConverter.hpp"
 #include <iostream>
+
+#include "ScalarConverter.hpp"
 
 int main(void) {
   std::string input;
