@@ -1,5 +1,4 @@
 #include "Serializer.hpp"
-#include <cstdint>
 
 uintptr_t Serializer::serialize(Data *ptr)
 {

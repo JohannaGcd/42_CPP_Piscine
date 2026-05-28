@@ -1,4 +1,5 @@
 #include "Serializer.hpp"
+#include <assert.h>
 
 int	main(void)
 {
@@ -17,4 +18,6 @@ int	main(void)
 	std::cout << "[ DESERIALIZED DATA ] " << std::endl;
 	std::cout << "Address:		" << restoredPtr << std::endl;
 	std::cout << "Value:		" << restoredPtr->value << std::endl;
+	std::cout << "Pointers are equal: " << (&originalData == restoredPtr ? "true" : "false") << std::endl;
+	return (0);
 }

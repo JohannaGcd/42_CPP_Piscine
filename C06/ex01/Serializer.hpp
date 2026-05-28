@@ -1,6 +1,7 @@
 #ifndef SERIALIZER_H
 # define SERIALIZER_H
 
+# include <cstdint>
 # include <iostream>
 
 struct	Data
