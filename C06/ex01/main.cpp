@@ -2,17 +2,19 @@
 
 int	main(void)
 {
-	Data originalData;
+	Data		originalData;
+	uintptr_t	serializedPtr;
+	Data		restoredData;
+	Data		*restoredPtr;
+
 	originalData.value = 20;
-
-	uintptr_t serializedPtr;
-
 	serializedPtr = Serializer::serialize(&originalData);
-	std::cout << "in main: " << serializedPtr << std::endl;
-
-	Data restoredData;
-	Data *restoredPtr = &restoredData;
+	std::cout << "[ ORIGINAL DATA ]: " << std::endl;
+	std::cout << "Address:		" << &originalData << std::endl;
+	std::cout << "Value:		" << originalData.value << std::endl;
+	restoredPtr = &restoredData;
 	restoredPtr = Serializer::deserialize(serializedPtr);
-	std::cout << "int main: " << restoredPtr << std::endl;
-	std::cout << "int main: " << restoredPtr->value << std::endl;
+	std::cout << "[ DESERIALIZED DATA ] " << std::endl;
+	std::cout << "Address:		" << restoredPtr << std::endl;
+	std::cout << "Value:		" << restoredPtr->value << std::endl;
 }
