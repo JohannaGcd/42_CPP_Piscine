@@ -1,9 +1,0 @@
-BasedOnStyle: Google
-IndentWidth: 2
-ColumnLimit: 80
-PointerAlignment: Left
-UseTab: Never
-SortIncludes: true
-IncludeBlocks: Regroup
-SpaceBeforeParens: ControlStatements
-BreakBeforeBraces: Attach
