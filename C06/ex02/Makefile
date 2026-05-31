@@ -1,7 +1,7 @@
-NAME = ex0
+NAME = ex02
 CFLAGS = -Wall -Wextra -Werror -std=c++11 -g
 
-SRC = main.cpp
+SRC = main.cpp Base.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

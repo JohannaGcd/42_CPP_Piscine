@@ -6,10 +6,6 @@ class Base {
   virtual ~Base();
 };
 
-class A;
-class B;
-class C;
-
 Base* generate(void);
 void identify(Base* p);
 void identify(Base& p);
