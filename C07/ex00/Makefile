@@ -1,7 +1,7 @@
 NAME = ex00
 CFLAGS = -Wall -Wextra -Werror -std=c++11 -g
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
