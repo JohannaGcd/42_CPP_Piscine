@@ -1,14 +1,13 @@
-#ifndef WHATEVER_H
-#define WHATEVER_H
+#ifndef ITER_H
+#define ITER_H
 
 #include <cstddef>
 
-template <typename F> void foo(F&& f) {
-
-}
-
-template <typename T, typename F> void iter(T *arr, const std::size_t n, F f) {
-
+template <typename T, typename F>
+void iter(T* arr, const std::size_t len, F f) {
+  for (std::size_t i = 0; i < len; ++i) {
+    f(arr[i]);
+  }
 }
 
 #endif
