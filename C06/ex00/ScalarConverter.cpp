@@ -60,9 +60,11 @@ bool confirm_int_type(std::string input) {
 //	then show what 42 looks like as a char, int, float, and double
 void ScalarConverter::convert(const std::string& str) {
   std::string type = recognize_type(str);
-  if (confirm_int_type(str) == false) {
-    std::cout << "Error: Invalid input" << std::endl;
-    return;
+  if (type != "pseudo-literal") {
+    if (confirm_int_type(str) == false) {
+      std::cout << "Error: Invalid input" << std::endl;
+      return;
+    }
   }
 
   try {

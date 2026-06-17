@@ -1,5 +1,5 @@
 NAME = ex00
-CFLAGS = -Wall -Wextra -Werror -std=c++11 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++11
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
