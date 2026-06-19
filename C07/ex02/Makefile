@@ -1,7 +1,7 @@
 NAME = ex02
 CFLAGS = -Wall -Wextra -Werror -std=c++11 -g
 
-SRC = main.cpp array.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
