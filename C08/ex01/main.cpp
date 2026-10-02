@@ -22,8 +22,8 @@ int main() {
     // large test
     const unsigned int N = 10000;
     std::vector<int> big;
-    big.reserve(N);
-    std::srand(static_cast<unsigned int>(std::time(NULL)));
+    big.reserve(N); // tells the vector to pre-allocate memory for N elements
+    std::srand(static_cast<unsigned int>(std::time(NULL))); // produces different values each time, by anchoring the generation of random values with the launching time
     for (unsigned int i = 0; i < N; ++i)
         big.push_back(std::rand());
 
