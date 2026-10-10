@@ -30,7 +30,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 BitcoinExchange::~BitcoinExchange()
 {
 }
-
+// Remove spaces and tabs from the beginning and end of a string
 std::string BitcoinExchange::trim(const std::string& value)
 {
 	std::string::size_type first = 0;
@@ -45,6 +45,8 @@ std::string BitcoinExchange::trim(const std::string& value)
 	return value.substr(first, last - first);
 }
 
+// Years divisible by 400 are always leap years,
+// and years divisible by 4 but not 100 are also leap years.
 bool BitcoinExchange::isLeapYear(int year)
 {
 	return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
@@ -52,26 +54,32 @@ bool BitcoinExchange::isLeapYear(int year)
 
 bool BitcoinExchange::parseInteger(const std::string& text, int& value)
 {
-	char* end = 0;
+	char* end = nullptr;
 	long parsed;
 
 	if (text.empty())
 		return false;
 	errno = 0;
+	// strtol converts text into a long integer, and detects invalid characters
+	// endptr will point at the first invalid character, ie: "123abc" -> 123
 	parsed = std::strtol(text.c_str(), &end, 10);
+	// errno is a global variable. catches overflow in parsed
+	// parsing failed if: overflow, nothing was converted, the last char is not null, result is a negative number or too big to be an int
 	if (errno == ERANGE || end == text.c_str() || *end != '\0'
 		|| parsed < 0 || parsed > std::numeric_limits<int>::max())
 		return false;
+	// we've checked that parsed fits into an int, so conversion is safe here
 	value = static_cast<int>(parsed);
 	return true;
 }
 
+// Checks if the date is valid, returns false if not
 bool BitcoinExchange::parseDate(const std::string& date)
 {
 	int year;
 	int month;
 	int day;
-	std::string::size_type index;
+	std::string::size_type index; // size_type is the return type for .size() and .find()
 
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		return false;
@@ -97,7 +105,7 @@ bool BitcoinExchange::parseDate(const std::string& date)
 
 bool BitcoinExchange::parseRate(const std::string& text, double& value)
 {
-	char* end = 0;
+	char* end = nullptr;
 	double parsed;
 
 	if (text.empty())
@@ -105,7 +113,7 @@ bool BitcoinExchange::parseRate(const std::string& text, double& value)
 	errno = 0;
 	parsed = std::strtod(text.c_str(), &end);
 	if (errno == ERANGE || end == text.c_str() || *end != '\0'
-		|| parsed != parsed)
+		|| !std::isfinite(parsed))
 		return false;
 	value = parsed;
 	return true;
@@ -113,7 +121,7 @@ bool BitcoinExchange::parseRate(const std::string& text, double& value)
 
 bool BitcoinExchange::loadDatabase(const std::string& filename)
 {
-	std::ifstream database(filename.c_str());
+	std::ifstream database(filename);
 	std::string line;
 	bool hasHeader = false;
 
@@ -128,6 +136,7 @@ bool BitcoinExchange::loadDatabase(const std::string& filename)
 		double rate;
 		std::string date;
 
+		// if no comma was found, skip
 		if (separator == std::string::npos)
 			continue;
 		date = trim(line.substr(0, separator));
@@ -150,39 +159,44 @@ void BitcoinExchange::processLine(const std::string& line) const
 	if (separator == std::string::npos || line.find('|', separator + 1)
 		!= std::string::npos)
 	{
-		std::cerr << "Error: bad input => " << line << std::endl;
+		std::cout << "Error: bad input => " << line << std::endl;
 		return;
 	}
 	date = trim(line.substr(0, separator));
 	valueText = trim(line.substr(separator + 1));
 	if (!parseDate(date))
 	{
-		std::cerr << "Error: bad input => " << line << std::endl;
+		std::cout << "Error: bad input => " << line << std::endl;
 		return;
 	}
 	if (!parseRate(valueText, value))
 	{
-		std::cerr << "Error: not a positive number." << std::endl;
+		std::cout << "Error: bad input => " << line << std::endl;
 		return;
 	}
 	if (value < 0)
 	{
-		std::cerr << "Error: not a positive number." << std::endl;
+		std::cout << "Error: not a positive number." << std::endl;
 		return;
 	}
 	if (value > 1000)
 	{
-		std::cerr << "Error: too large a number." << std::endl;
+		std::cout << "Error: too large a number." << std::endl;
 		return;
 	}
+	// searches the stored database _rates with the date extracted from the input line
 	rate = _rates.lower_bound(date);
+	// if rate (the map iterator) is passed the end of the map, 
+	// or has found no matching date
 	if (rate == _rates.end() || rate->first != date)
 	{
+		// check if rate is still at index 0, meaning the input date is ealier than database dates.
 		if (rate == _rates.begin())
 		{
-			std::cerr << "Error: no rate available for date." << std::endl;
+			std::cout << "Error: no rate available for date." << std::endl;
 			return;
 		}
+		// otherwise, move to the closest date before.
 		--rate;
 	}
 	std::cout << date << " => " << valueText << " = "
@@ -198,7 +212,7 @@ bool BitcoinExchange::loadInput(const std::string& filename) const
 		return false;
 	if (!std::getline(input, line) || trim(line) != "date | value")
 	{
-		std::cerr << "Error: bad input => "
+		std::cout << "Error: bad input => "
 			<< (line.empty() ? "missing header" : line) << std::endl;
 		return true;
 	}

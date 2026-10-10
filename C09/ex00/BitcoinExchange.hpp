@@ -7,7 +7,10 @@
 class BitcoinExchange
 {
 private:
+	// _rates stores data.csv as a map: data -> exchange rate
 	std::map<std::string, double> _rates;
+
+	// _databaseLoaded records whether data.csv was loaded successfully
 	bool _databaseLoaded;
 
 	static std::string trim(const std::string& value);
