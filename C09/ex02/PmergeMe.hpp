@@ -8,6 +8,8 @@
 class PmergeMe
 {
 private:
+	// This is a nested struct type. 
+	// It is used inside the class, by the sorting function, but it is not a member attribute of the class.
 	struct Pair
 	{
 		int small;
@@ -36,6 +38,9 @@ public:
 
 	static bool parseArguments(int argc, char** argv,
 		std::vector<int>& values, std::deque<int>& dequeValues);
+	// vectors use contiguous memory
+	// deque avoids large reallocation while growing
+	// this exercice compares their performance
 	static void sortVectorValues(std::vector<int>& values);
 	static void sortDequeValues(std::deque<int>& values);
 };
