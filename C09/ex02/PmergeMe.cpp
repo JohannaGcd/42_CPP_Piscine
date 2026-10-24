@@ -291,6 +291,17 @@ void PmergeMe::sortDeque(std::deque<int>& values)
 	values.swap(result);
 }
 
+
+/* Overall sorting logic:
+1. Group input values into pairs and store each as (small, large).
+2. Sort the pairs according to their large values.
+3. Put all large values into the initial chain
+4. Insert the first pair's small value into the chain
+5. Create the insertion order for the remaining pair indexes.
+6. Insert the remaining small values according to that order.
+7. If there was an unpaired odd value, insert it into the chain.
+8. Copy the sorted values from chain into the result container.
+*/
 void PmergeMe::sortVectorValues(std::vector<int>& values)
 {
 	sortVector(values);
